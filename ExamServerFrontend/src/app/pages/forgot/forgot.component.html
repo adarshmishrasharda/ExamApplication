@@ -1,0 +1,93 @@
+<div class="bootstrap-wrapper">
+	<div class="container">
+        <div class="row mt20" >
+          
+
+            <div class="col-md-6 offset-md-3">
+
+                <mat-card>
+                <div class="container text-center">
+
+                    <img src='../../../assets/logo.png' alt="nothing" style="height: 120px; width: 120px;"/>
+                    
+                   
+                </div>
+                <!-- {{user | json}} -->
+                <h1 class="text-center">Reset Password Here</h1>
+                
+                {{forgot | json}}
+
+                <form class="ml10 mr10 " (ngSubmit)="formSubmit()" >
+
+                   
+                    <!-- email show field to get otp  -->
+                    <div *ngIf="!otpSent">
+                    <p>
+                        <mat-form-field class="full-width" appearance="outline">
+                          <mat-label> Email</mat-label>
+                          <input
+                          required
+                          [(ngModel)]="forgot.email"
+                          name="email"
+                          type="text" matInput placeholder="Enter here">
+                          <mat-hint>Valid Email </mat-hint>
+
+                        </mat-form-field>
+                      </p>
+
+                      
+                      <div style="text-align: right;">
+                          <a (click)="login()" style="color: blue; "  >
+                            <mat-hint align="end">Login</mat-hint>
+                          </a>
+                        </div>
+                     
+                    
+                    <div class="container text-center mb10">
+
+                        <button type="submit" mat-raised-button color="primary">Send Otp</button>
+                        <button style="margin-left: 20px;" mat-raised-button color="accent">Clear</button>
+
+                    </div>
+                </div>
+
+            <!-- otp verify field -->
+
+                <div *ngIf="otpSent">
+                    <p>
+                        <mat-form-field class="full-width" appearance="outline">
+                          <mat-label> OTP</mat-label>
+                          <input
+                          required
+                          [(ngModel)]="forgot.otp"
+                          name="otp"
+                          type="text" matInput placeholder="Enter here">
+                          <mat-hint>Valid Otp </mat-hint>
+
+                        </mat-form-field>
+                      </p>
+
+                      
+                      <div style="text-align: right;">
+                          <a (click)="login()" style="color: blue; "  >
+                            <mat-hint align="end">Login</mat-hint>
+                          </a>
+                        </div>
+                     
+                    
+                    <div class="container text-center mb10">
+
+                        <button type="submit" mat-raised-button color="primary">Verify</button>
+                        <button style="margin-left: 20px;" mat-raised-button color="accent">Clear</button>
+
+                    </div>
+                </div>
+
+                </form>
+            </mat-card>
+            </div>
+        </div>
+		
+
+	</div>
+</div>

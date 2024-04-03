@@ -1,0 +1,68 @@
+<mat-card *ngIf="user">
+
+    <!-- <h1>Your Profile Details</h1>
+    {{user|json}} -->
+
+    <mat-card-content>
+
+        <div class="bootstrap-wrapper">
+
+            <div class="container">
+                <div class="container text-center">
+
+                    <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg" alt="">
+
+                    <h1 class="mt20"> {{user.firstName}} {{user.lastName}}</h1>
+                </div>
+
+                <div>
+
+                <div class="row">
+
+                    <div class="col-md-10 offset-md-1">
+<!-- details tables -->
+
+<table class="table text-center">
+    <tr>
+        <td>Username</td>
+        <td>{{user.username}}</td>
+    </tr>
+    <!-- *ngIf se ye hoga ki agar null hai to o row hi nahi show karege -->
+    <tr *ngIf="user.phone">
+        <td>Phone</td>
+        <td>{{user.phone}}</td>
+    </tr>
+    <tr>
+        <td>Role</td>
+        <td>{{user.authorities[0].authority}}</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>{{user.enabled ? "ACTIVE":"NOT ACTIVE"}}</td>
+    </tr>
+</table>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+
+        </div>
+
+
+
+    </mat-card-content>
+
+    <mat-card-actions class="center">
+        <button mat-raised-button color="primary">Update</button>
+        <button style="margin-left: 10px;" mat-raised-button color="accent">Share</button>
+      </mat-card-actions>
+    
+
+
+</mat-card>
